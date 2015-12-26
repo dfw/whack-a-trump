@@ -1,2 +1,16 @@
 Game Notes
 
+Quit
+
+- Game ends
+- All Trumps go to 'down' state
+- Timer resets
+- Score resets
+
+Play
+
+- New game initialized
+- Timer counts down from 30 to 0
+- 2 random Trumps go to 'up' state for 2 seconds
+- If Trump is hit while up, increment score by 1 point and change to 'hit' state
+- After 2 seconds, change Trumps to 'down' state and repeat process

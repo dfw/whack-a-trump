@@ -32,6 +32,10 @@ main {
   padding: 0 15px;
 }
 
+.hide {
+  display: none;
+}
+
 dl {
   margin: 0;
 }
