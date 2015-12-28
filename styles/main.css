@@ -40,23 +40,27 @@ dl {
   margin: 0;
 }
 
-.grid {
+#trumps {
   list-style: none;
   margin: 0;
   padding: 0;
 }
 
-.grid li {
+#trumps li {
   float: left;
   margin-bottom: 15px;
   width: calc(100%/3);
 }
 
-.grid span {
+#trumps span {
   background: #000;
   border-radius: 50%;
   display: block;
   margin: 0 auto;
   width: 75px;
   height: 75px;
+}
+
+#trumps span.up {
+  background: green;
 }
