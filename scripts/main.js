@@ -13,11 +13,13 @@ var game = {
   start: function() {
     game.showQuit();
     game.countdown = setInterval(game.updateTime, 1000);
-    game.playLoop = setInterval(game.play, 2000);
+    game.playLoop = setInterval(game.play, 1500);
   },
   end: function() {
     game.showPlay();
-    clearInterval(game.countdown);    
+    game.deactivateTrumps();
+    clearInterval(game.countdown);
+    clearInterval(game.playLoop);
   },
   play: function() {
     if (game.timeRemaining > 0) {
@@ -30,7 +32,7 @@ var game = {
     }
   },
   getRandomTrumps: function() {
-    var firstTrump = secondTrump = 0;      
+    var firstTrump = secondTrump = 0;
     var trumpsArray = [];
     if (activeTrumps.length > 0) {
       while (firstTrump === activeTrumps[0] ||
@@ -40,12 +42,12 @@ var game = {
              firstTrump === secondTrump) {
         firstTrump = randomNumber(0, 8);
         secondTrump = randomNumber(0, 8);
-      }   
+      }
     } else {
       while (firstTrump === secondTrump) {
         firstTrump = randomNumber(0, 8);
         secondTrump = randomNumber(0, 8);
-      }      
+      }
     }
     trumpsArray.push(firstTrump);
     trumpsArray.push(secondTrump);
@@ -64,6 +66,16 @@ var game = {
       }
     }
   },
+  hit: function() {
+    if (this.className === 'up') {
+      game.updateScore();
+      this.className = 'hit';
+    }
+  },
+  updateScore: function() {
+    game.score += 1;
+    score.innerHTML = game.score;
+  },
   showPlay: function() {
     quitBtn.className = 'hide';
     playBtn.className = '';
@@ -75,7 +87,7 @@ var game = {
   updateTime: function() {
     time.innerHTML = game.timeRemaining;
     if (game.timeRemaining > 0) {
-      game.timeRemaining -= 1;            
+      game.timeRemaining -= 1;
     } else {
       game.end();
     }
@@ -85,7 +97,8 @@ var game = {
     time.innerHTML = game.timeRemaining;
   },
   resetScore: function() {
-
+    game.score = 0;
+    score.innerHTML = game.score;
   },
   resetGame: function() {
     game.resetTime();
@@ -94,13 +107,18 @@ var game = {
 };
 
 playBtn.onclick = function() {
-  var newGame = game;
-  newGame.start();
-  quitBtn.onclick = function() {
-    newGame.end();
-    newGame.resetGame();
-  };
+  game.start();
 };
+
+quitBtn.onclick = function() {
+  game.end();
+  game.resetGame();
+};
+
+for (var i = 0; i < trumps.length; i++) {
+  var trump = trumps[i].getElementsByTagName('span')[0];
+  trump.onclick = game.hit;
+}
 
 function randomNumber(min, max) {
   return Math.floor(Math.random() * (max - min + 1)) + min;
