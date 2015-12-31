@@ -8,7 +8,7 @@ var activeTrumps = [];
 var game = {
   countdown: 0,
   playLoop: 0,
-  timeRemaining: 15,
+  timeRemaining: 30,
   score: 0,
   start: function() {
     game.showQuit();
@@ -93,7 +93,7 @@ var game = {
     }
   },
   resetTime: function() {
-    game.timeRemaining = 15;
+    game.timeRemaining = 30;
     time.innerHTML = game.timeRemaining;
   },
   resetScore: function() {

@@ -2,6 +2,18 @@
    Fonts
    ========================================================================== */
 
+@font-face {
+  font-family: 'dancing_script_otregular';
+  src: url('../fonts/dancingscript-regular-webfont.eot');
+  src: url('../fonts/dancingscript-regular-webfont.eot?#iefix') format('embedded-opentype'),
+       url('../fonts/dancingscript-regular-webfont.woff2') format('woff2'),
+       url('../fonts/dancingscript-regular-webfont.woff') format('woff'),
+       url('../fonts/dancingscript-regular-webfont.ttf') format('truetype'),
+       url('../fonts/dancingscript-regular-webfont.svg#dancing_script_otregular') format('svg');
+  font-weight: normal;
+  font-style: normal;
+}
+
 /* ==========================================================================
    Whack-a-Trump
    ========================================================================== */
@@ -40,6 +52,8 @@ main {
 
 h1 {
   color: #920005;
+  font-family: 'dancing_script_otregular', cursive;
+  font-size: 30px;
   margin: 0 auto;
   padding: 15px 0;
   text-align: center;
@@ -83,10 +97,28 @@ dd {
 
 .game-buttons {
   clear: both;
+  margin-bottom: 15px;
+  text-align: center;
+}
+
+.game-buttons:after {
+  clear: both;
+  content: "";
+  display: table;
 }
 
 button {
+  background: #000141;
+  border: 0;
+  color: #FFF;
+  font-size: 18px;
+  text-transform: uppercase;
+  width: 50%;
+  height: 40px;
+}
 
+#quit {
+  background: #920005;
 }
 
 #trumps {
