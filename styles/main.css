@@ -109,16 +109,28 @@ dd {
 
 button {
   background: #013F8A;
-  border: 0;
+  border: 1px solid #01336f;
+  border-radius: 3px;
   color: #FFF;
   font-size: 18px;
+  font-weight: bold;
   text-transform: uppercase;
   width: 50%;
   height: 40px;
+  transition: background 200ms linear;
+}
+
+#play:hover {
+  background: #01336f;
 }
 
 #quit {
   background: #920005;
+  border-color: #750004;
+}
+
+#quit:hover {
+  background: #750004;
 }
 
 #trumps {
@@ -136,22 +148,12 @@ button {
 #trumps li {
   float: left;
   margin-bottom: 15px;
+  position: relative;
   width: calc(100%/3);
 }
 
-#trumps span:before {
-  background: #000;
-  border-radius: 50%;
-  display: block;
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 75px;
-  height: 75px;
-}
-
 #trumps span {
-  background: #000141;
+  background: #0c1019;
   border-radius: 50%;
   display: block;
   margin: 0 auto;
@@ -160,13 +162,29 @@ button {
   height: 75px;
 }
 
-#trumps span.up {
+#trumps span:before {
   background: url("../images/trump-up.jpg") no-repeat 0 0;
   background-size: cover;
+  border-radius: 50%;
+  content: "";
   cursor: pointer;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  -webkit-transform: scale(0);
+  -ms-transform: scale(0);
+  transform: scale(0);
+  transition: transform 200ms ease-in;
+}
+
+#trumps span.up:before {
+  -webkit-transform: scale(1);
+  -ms-transform: scale(1);
+  transform: scale(1);
 }
 
 #trumps span.hit {
   background: #920005;
-  cursor: default;
 }
