@@ -34,7 +34,7 @@ img {
 }
 
 body {
-  background: #F8F8FF;
+  background: url("../images/satinweave.png") repeat 0 0;
   border-left: 1px solid black;
   border-right: 1px solid black;
   font-family: "HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif;
@@ -108,7 +108,7 @@ dd {
 }
 
 button {
-  background: #000141;
+  background: #013F8A;
   border: 0;
   color: #FFF;
   font-size: 18px;
@@ -140,7 +140,7 @@ button {
 }
 
 #trumps span {
-  background: #000;
+  background: #000141;
   border-radius: 50%;
   display: block;
   margin: 0 auto;
@@ -154,6 +154,6 @@ button {
 }
 
 #trumps span.hit {
-  background: red;
+  background: #920005;
   cursor: default;
 }
