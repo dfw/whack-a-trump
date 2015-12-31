@@ -139,17 +139,30 @@ button {
   width: calc(100%/3);
 }
 
+#trumps span:before {
+  background: #000;
+  border-radius: 50%;
+  display: block;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 75px;
+  height: 75px;
+}
+
 #trumps span {
   background: #000141;
   border-radius: 50%;
   display: block;
   margin: 0 auto;
+  position: relative;
   width: 75px;
   height: 75px;
 }
 
 #trumps span.up {
-  background: green;
+  background: url("../images/trump-up.jpg") no-repeat 0 0;
+  background-size: cover;
   cursor: pointer;
 }
 
