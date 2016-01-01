@@ -11,6 +11,19 @@ var game = {
   timeRemaining: 10,
   score: 0,
   newHighScore: false,
+  init: function() {
+    playBtn.onclick = function() {
+      game.start();
+    };
+    quitBtn.onclick = function() {
+      game.end();
+      game.resetGame();
+    };
+    for (var i = 0; i < trumps.length; i++) {
+      var trump = trumps[i].getElementsByTagName('span')[0];
+      trump.onclick = game.hit;
+    }
+  },
   start: function() {
     game.showQuit();
     game.countdown = setInterval(game.updateTime, 1000);
@@ -151,19 +164,7 @@ var game = {
   }
 };
 
-playBtn.onclick = function() {
-  game.start();
-};
-
-quitBtn.onclick = function() {
-  game.end();
-  game.resetGame();
-};
-
-for (var i = 0; i < trumps.length; i++) {
-  var trump = trumps[i].getElementsByTagName('span')[0];
-  trump.onclick = game.hit;
-}
+game.init();
 
 function randomNumber(min, max) {
   return Math.floor(Math.random() * (max - min + 1)) + min;

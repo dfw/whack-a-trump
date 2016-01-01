@@ -35,15 +35,13 @@ img {
 
 body {
   background: url("../images/satinweave.png") repeat 0 0;
-  border-left: 1px solid black;
-  border-right: 1px solid black;
   font-family: "HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif;
   margin: 0 auto;
-  position: relative;
-  width: 320px;
 }
 
 main {
+  margin: 0 auto;
+  max-width: 600px;
   padding: 0 15px;
 }
 
