@@ -8,8 +8,9 @@ var activeTrumps = [];
 var game = {
   countdown: 0,
   playLoop: 0,
-  timeRemaining: 30,
+  timeRemaining: 10,
   score: 0,
+  newHighScore: false,
   start: function() {
     game.showQuit();
     game.countdown = setInterval(game.updateTime, 1000);
@@ -20,15 +21,16 @@ var game = {
     game.deactivateTrumps();
     clearInterval(game.countdown);
     clearInterval(game.playLoop);
+    if (game.timeRemaining === 0) {
+      game.saveScore();
+      game.showMessage();
+    }
   },
   play: function() {
     if (game.timeRemaining > 0) {
       game.deactivateTrumps();
       var randomTrumps = game.getRandomTrumps();
       game.activateTrumps(randomTrumps);
-    } else {
-      game.deactivateTrumps();
-      clearInterval(game.playLoop);
     }
   },
   getRandomTrumps: function() {
@@ -103,6 +105,49 @@ var game = {
   resetGame: function() {
     game.resetTime();
     game.resetScore();
+  },
+  message: function() {
+    var msgDiv = document.createElement('div');
+    msgDiv.className = 'game-over'
+    var h2 = document.createElement('h2');
+    var h2Content = document.createTextNode('Game Over');
+    h2.appendChild(h2Content);
+    var p1 = document.createElement('p');
+    var p1Content;
+    if (game.newHighScore) {
+      p1Content = document.createTextNode('New high score!');
+    } else {
+      p1Content = document.createTextNode('Congratulations!');
+    }
+    p1.appendChild(p1Content);
+    var p2 = document.createElement('p');
+    var p2Content = document.createTextNode('You whacked ' + game.score + ' Trump' + (game.score !== 1 ? 's' : '') + '.');
+    p2.appendChild(p2Content);
+    var btn = document.createElement('button');
+    var btnContent = document.createTextNode('Play Again');
+    btn.appendChild(btnContent);
+    btn.onclick = game.removeMessage;
+    msgDiv.appendChild(h2);
+    msgDiv.appendChild(p1);
+    msgDiv.appendChild(p2);
+    msgDiv.appendChild(btn);
+    return msgDiv;
+  },
+  showMessage: function() {
+    document.body.appendChild(game.message());
+  },
+  removeMessage: function() {
+    var msg = document.getElementsByClassName('game-over')[0];
+    game.resetGame();
+    msg.remove();
+  },
+  saveScore: function() {
+    if (!localStorage.score || game.score > localStorage.score) {
+      localStorage.score = game.score;
+      game.newHighScore = true;
+    } else {
+      game.newHighScore = false;
+    }
   }
 };
 

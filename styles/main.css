@@ -39,6 +39,7 @@ body {
   border-right: 1px solid black;
   font-family: "HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif;
   margin: 0 auto;
+  position: relative;
   width: 320px;
 }
 
@@ -50,19 +51,33 @@ main {
   display: none;
 }
 
-h1 {
+h1,
+h2,
+h3 {
   color: #920005;
   font-family: 'dancing_script_otregular', cursive;
+}
+
+h1,
+h2 {
   font-size: 30px;
+  line-height: 30px;
   margin: 0 auto;
   padding: 15px 0;
   text-align: center;
 }
 
-dl {
+dl,
+p,
+h3 {
   color: #013F8A;
   font-size: 16px;
+  line-height: 16px;
   margin: 0 0 15px;
+  padding: 0;
+}
+
+dl {
   text-transform: uppercase;
 }
 
@@ -116,7 +131,7 @@ button {
   font-weight: bold;
   outline: 0;
   text-transform: uppercase;
-  width: 50%;
+  width: 150px;
   height: 40px;
   transition: background 200ms linear;
 }
@@ -188,4 +203,17 @@ button {
 
 #trumps span.hit {
   background: #920005;
+}
+
+.game-over {
+  background: #FFF;
+  background: rgba(255, 255, 255, 0.95);
+  padding: 0 15px;
+  position: absolute;
+  top: 0;
+  left: 0;
+  text-align: center;
+  width: 100%;
+  height: 100%;
+  z-index: 1000;
 }
