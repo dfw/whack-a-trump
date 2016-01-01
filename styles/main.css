@@ -136,7 +136,7 @@ button {
   transition: background 200ms linear;
 }
 
-#play:hover {
+button:hover {
   background: #01336f;
 }
 
