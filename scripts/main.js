@@ -22,6 +22,7 @@ var game = {
     for (var i = 0; i < trumps.length; i++) {
       var trump = trumps[i].getElementsByTagName('span')[0];
       trump.onclick = game.hit;
+      trump.ontouchstart = game.hit;
     }
   },
   start: function() {
