@@ -114,6 +114,7 @@ button {
   color: #FFF;
   font-size: 18px;
   font-weight: bold;
+  outline: 0;
   text-transform: uppercase;
   width: 50%;
   height: 40px;
