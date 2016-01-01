@@ -169,6 +169,7 @@ button:hover {
 #trumps span {
   background: #0c1019;
   border-radius: 50%;
+  cursor: pointer;
   display: block;
   margin: 0 auto;
   position: relative;
@@ -181,7 +182,6 @@ button:hover {
   background-size: cover;
   border-radius: 50%;
   content: "";
-  cursor: pointer;
   position: absolute;
   top: 0;
   left: 0;
