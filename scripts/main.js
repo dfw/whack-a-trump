@@ -10,6 +10,7 @@ var game = {
   playLoop: 0,
   timeRemaining: 20,
   score: 0,
+  trumpCount: 0,
   newHighScore: false,
   init: function() {
     playBtn.onclick = function() {
@@ -75,6 +76,7 @@ var game = {
   activateTrumps: function(selectedTrumps) {
     for (var i = 0; i < selectedTrumps.length; i++) {
       trumps[selectedTrumps[i]].getElementsByTagName('span')[0].className = 'up';
+      trumpCount += 1;
     }
     activeTrumps = selectedTrumps;
   },
@@ -154,6 +156,7 @@ var game = {
   },
   showMessage: function() {
     document.body.appendChild(game.message());
+    alert(trumpCount);
   },
   removeMessage: function() {
     var msg = document.getElementsByClassName('game-over')[0];
