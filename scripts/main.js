@@ -8,7 +8,7 @@ var activeTrumps = [];
 var game = {
   countdown: 0,
   playLoop: 0,
-  timeRemaining: 10,
+  timeRemaining: 20,
   score: 0,
   newHighScore: false,
   init: function() {
@@ -112,7 +112,7 @@ var game = {
     }
   },
   resetTime: function() {
-    game.timeRemaining = 30;
+    game.timeRemaining = 20;
     time.innerHTML = game.timeRemaining;
   },
   resetScore: function() {
@@ -131,10 +131,12 @@ var game = {
     h2.appendChild(h2Content);
     var p1 = document.createElement('p');
     var p1Content;
-    if (game.newHighScore) {
-      p1Content = document.createTextNode('New high score!');
+    if (game.score === 0) {
+      p1Content = document.createTextNode('Well that\'s embarrassing.');
+    } else if (game.newHighScore) {
+      p1Content = document.createTextNode('NEW high score!');
     } else {
-      p1Content = document.createTextNode('Congratulations!');
+      p1Content = document.createTextNode(randomExpression());
     }
     p1.appendChild(p1Content);
     var p2 = document.createElement('p');
@@ -172,4 +174,16 @@ game.init();
 
 function randomNumber(min, max) {
   return Math.floor(Math.random() * (max - min + 1)) + min;
+}
+
+function randomExpression() {
+  var expressions = [
+    'Yes!',
+    'Woo!',
+    'Way to go!',
+    'Congrats!',
+    'Awesome!',
+    'Boom!'
+  ];
+  return expressions[randomNumber(0, 5)];
 }
