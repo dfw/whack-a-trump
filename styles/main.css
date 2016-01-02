@@ -233,7 +233,7 @@ button:hover {
   -webkit-transform: scale(0);
   -ms-transform: scale(0);
   transform: scale(0);
-  transition: transform 200ms ease-in;
+  transition: transform 250ms ease-in-out;
 }
 
 #trumps span.up:before {

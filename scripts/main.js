@@ -31,7 +31,7 @@ var game = {
   start: function() {
     game.showQuit();
     game.countdown = setInterval(game.updateTime, 1000);
-    game.playLoop = setInterval(game.play, 1500);
+    game.playLoop = setInterval(game.play, 1250);
   },
   end: function() {
     game.showPlay();
