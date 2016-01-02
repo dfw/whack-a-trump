@@ -22,8 +22,7 @@ var game = {
     for (var i = 0; i < trumps.length; i++) {
       var trump = trumps[i].getElementsByTagName('span')[0];
       if ('ontouchstart' in document.documentElement) {
-        trump.ontouchstart = game.hit;
-        alert('ontouchstart!');
+        trump.ontouchend = game.hit;
       } else {
         trump.onclick = game.hit;
       }
