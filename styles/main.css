@@ -115,7 +115,7 @@ dd {
 
 .game-buttons {
   clear: both;
-  margin-bottom: 20px;
+  margin-bottom: 60px;
   text-align: center;
 }
 
@@ -168,9 +168,17 @@ button:hover {
 
 #trumps li {
   float: left;
-  margin-bottom: 15px;
+  margin-bottom: 20px;
   position: relative;
   width: calc(100%/3);
+}
+
+#trumps li:nth-child(3n+1) span {
+  float: left;
+}
+
+#trumps li:nth-child(3n+3) span {
+  float: right;
 }
 
 #trumps span {
