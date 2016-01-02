@@ -118,6 +118,7 @@ var game = {
     time.innerHTML = game.timeRemaining;
   },
   resetScore: function() {
+    game.trumpCount = 0;
     game.score = 0;
     score.innerHTML = game.score;
   },
@@ -133,13 +134,17 @@ var game = {
     h2.appendChild(h2Content);
     var p1 = document.createElement('p');
     var p1Content;
+    var msg;
     if (game.score === 0) {
-      p1Content = document.createTextNode('Well that\'s embarrassing.');
+      msg = 'Well that\'s embarrassing.';
+    } else if (game.score === game.trumpCount) {
+      msg = 'PERFECT!';
     } else if (game.newHighScore) {
-      p1Content = document.createTextNode('NEW high score!');
+      msg = 'NEW high score!';
     } else {
-      p1Content = document.createTextNode(randomExpression());
+      msg = randomExpression();
     }
+    p1Content = document.createTextNode(msg);
     p1.appendChild(p1Content);
     var p2 = document.createElement('p');
     var p2Content = document.createTextNode('You whacked ' + game.score + ' Trump' + (game.score !== 1 ? 's' : '') + '.');
@@ -156,7 +161,6 @@ var game = {
   },
   showMessage: function() {
     document.body.appendChild(game.message());
-    alert(game.trumpCount);
   },
   removeMessage: function() {
     var msg = document.getElementsByClassName('game-over')[0];
