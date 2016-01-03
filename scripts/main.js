@@ -138,9 +138,9 @@ var game = {
     if (game.score === 0) {
       msg = 'Well that\'s embarrassing.';
     } else if (game.score === game.trumpCount) {
-      msg = 'PERFECT!';
+      msg = 'Perfect!';
     } else if (game.newHighScore) {
-      msg = 'NEW high score!';
+      msg = 'New high score!';
     } else {
       msg = randomExpression();
     }
