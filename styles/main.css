@@ -150,7 +150,7 @@ button {
   background: #013F8A;
   border: 1px solid #01336f;
   border-radius: 3px;
-  color: #FFF;
+  color: #F8F8FF;
   font-size: 18px;
   font-weight: bold;
   line-height: 18px;
@@ -253,8 +253,8 @@ button:hover {
 }
 
 .game-over {
-  background: #FFF;
-  background: rgba(255, 255, 255, 0.95);
+  background: #F8F8FF;
+  background: rgba(248, 248, 255, 0.95);
   padding: 0 15px;
   position: absolute;
   top: 0;

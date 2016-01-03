@@ -1,3 +1,5 @@
+'use strict';
+
 var playBtn = document.getElementById('play');
 var quitBtn = document.getElementById('quit');
 var time = document.getElementById('time');
@@ -52,7 +54,8 @@ var game = {
     }
   },
   getRandomTrumps: function() {
-    var firstTrump = secondTrump = 0;
+    var firstTrump = 0;
+    var secondTrump = 0;
     var trumpsArray = [];
     if (activeTrumps.length > 0) {
       while (firstTrump === activeTrumps[0] ||
@@ -128,7 +131,7 @@ var game = {
   },
   message: function() {
     var msgDiv = document.createElement('div');
-    msgDiv.className = 'game-over'
+    msgDiv.className = 'game-over';
     var h2 = document.createElement('h2');
     var h2Content = document.createTextNode('Game Over');
     h2.appendChild(h2Content);
